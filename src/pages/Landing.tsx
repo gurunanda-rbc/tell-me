@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SpiralAnimation } from "@/components/ui/spiral-animation";
 import { ArrowRight, Upload, Shield, MessageCircle, FileText, Star, CheckCircle, Users, Clock, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
 import workflowImage from "@/assets/workflow-hero.jpg";
@@ -14,10 +15,15 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center hero-gradient">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Spiral Animation Background */}
+        <SpiralAnimation />
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 hero-gradient"></div>
+        
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto animate-fade-in">
             <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
               <Brain className="w-4 h-4 mr-2" />
               AI-Powered Document Analysis
@@ -57,11 +63,12 @@ const Landing = () => {
           </div>
         </div>
         
-        {/* Floating Elements */}
+        {/* Floating Elements - Enhanced with Animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-10 w-20 h-20 primary-gradient rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-10 w-16 h-16 bg-secondary-brand rounded-full opacity-20 animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 right-1/4 w-12 h-12 primary-gradient rounded-full opacity-10 animate-pulse delay-500"></div>
+          <div className="absolute top-1/4 left-10 w-20 h-20 primary-gradient rounded-full opacity-30 animate-pulse animate-bounce" style={{animationDelay: '0s'}}></div>
+          <div className="absolute bottom-1/4 right-10 w-16 h-16 bg-secondary-brand rounded-full opacity-30 animate-pulse animate-bounce" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 right-1/4 w-12 h-12 primary-gradient rounded-full opacity-20 animate-pulse animate-bounce" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/3 left-1/3 w-8 h-8 bg-secondary-brand rounded-full opacity-25 animate-pulse animate-bounce" style={{animationDelay: '3s'}}></div>
         </div>
       </section>
 
